@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Космический фон */
+.space-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #000428, #004e92);
+    z-index: -2;
+    overflow: hidden;
+}
+
+/* Имитация галактик и туманностей */
+.space-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent),
+                radial-gradient(circle at 50% 50%, rgba(100, 149, 237, 0.1), transparent),
+                radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.05), transparent);
+    background-size: 200% 200%;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+/* Мерцающие звезды */
+.space-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Изображение планет */
+.planet {
+    position: absolute;
+    width: 150px; /* Размер изображения */
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px; /* Добавляем закругленные углы */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Добавляем свечение */
+    z-index: -1;
+}
+
+.jupiter {
+    bottom: 20px;
+    left: 20px;
+    background-image: url('https://factszone.ru/wp-content/uploads/2021/02/interesnye-fakty-o-planete-yupiter2.jpg');
+}
+
+.earth {
+    top: 20px;
+    right: 20px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/800px-The_Earth_seen_from_Apollo_17.jpg');
+}
+
+.saturn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg');
+    width: 200px;
+}
+
+/* Контейнер */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffcc00; /* Желтый цвет NASA */
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+/* Форма */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+    color: #00bcd4;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Кнопка в стиле NASA */
+.nasa-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #ffcc00, #ff9800);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nasa-button:hover {
+    background: linear-gradient(145deg, #ff9800, #ffcc00);
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.nasa-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Ошибки */
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Результаты */
+.results {
+    margin-top: 20px;
+}
+
+.results p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}

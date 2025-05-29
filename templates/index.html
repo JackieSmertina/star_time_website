@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Астрономические расчеты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Космический фон -->
+<div class="space-background"></div>
+
+<!-- Планеты -->
+<div class="planet jupiter"></div>
+<div class="planet earth"></div>
+<div class="planet saturn"></div>
+
+<div class="container">
+    <header>
+        <h1>Астрономические расчеты</h1>
+        <p class="subtitle">Исследуй Вселенную с точностью</p>
+    </header>
+
+    <!-- Форма ввода данных -->
+    <form method="POST" id="time-form">
+        <label for="date">ДАТА (YYYY-MM-DD):</label>
+        <input type="text" id="date" name="date" value="{{ date }}" required>
+
+        <label for="time">ВРЕМЯ (HH:MM):</label>
+        <input type="text" id="time" name="time" value="{{ time }}" required>
+
+        <!-- Первая кнопка: рассчитать JD и LST -->
+        <button type="submit" class="nasa-button">Рассчитать звёздное время</button>
+    </form>
+
+    <!-- Вторая форма: ввод RA и расчёт HA -->
+    {% if show_ra_form %}
+    <form method="POST" id="ra-form">
+        <input type="hidden" name="date" value="{{ date }}">
+        <input type="hidden" name="time" value="{{ time }}">
+
+        <label for="ra">ПРЯМОЕ ВОСХОЖДЕНИЕ (HH:MM:SS):</label>
+        <input type="text" id="ra" name="ra" value="{{ ra }}" required>
+
+        <button type="submit" class="nasa-button">Рассчитать часовой угол</button>
+    </form>
+    {% endif %}
+
+    <!-- Ошибки -->
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <!-- Результаты -->
+    <section class="results">
+        {% if julian_day %}
+            <p><strong>Юлианский день:</strong> {{ julian_day }}</p>
+        {% endif %}
+        {% if sidereal_time_deg %}
+            <p><strong>Звездное время (градусы):</strong> {{ sidereal_time_deg }}°</p>
+        {% endif %}
+        {% if sidereal_time %}
+            <p><strong>Звездное время (чч:мм:сс):</strong> {{ sidereal_time }}</p>
+        {% endif %}
+        {% if hour_angle %}
+            <p><strong>Часовой угол:</strong> {{ hour_angle }}</p>
+        {% endif %}
+    </section>
+</div>
+
+</body>
+</html>
