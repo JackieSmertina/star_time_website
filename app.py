@@ -81,8 +81,8 @@ def calculate_hour_angle(lst_deg, ra_h, ra_m, ra_s):
 @app.route("/", methods=["GET", "POST"])
 def index():
     data = {
-        'date': '2025-05-23',
-        'time': '00:46',
+        'date': '',
+        'time': '',
         'ra': '',
         'julian_day': '',
         'sidereal_time_deg': '',
@@ -99,9 +99,8 @@ def index():
             time_str = request.form.get("time")
 
             y, m, d = map(int, date_str.split('-'))
-            hh, mm = map(int, time_str.split(':'))
-            ss = 0
-
+            hh, mm, ss = map(int, time_str.split(':'))
+         
             # Сохраняем значения
             data['date'] = date_str
             data['time'] = time_str

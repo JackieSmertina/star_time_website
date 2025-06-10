@@ -24,23 +24,6 @@ body {
     overflow: hidden;
 }
 
-/* Имитация галактик и туманностей */
-.space-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1), transparent),
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent),
-                radial-gradient(circle at 50% 50%, rgba(100, 149, 237, 0.1), transparent),
-                radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.05), transparent);
-    background-size: 200% 200%;
-    opacity: 0.8;
-    z-index: -1;
-}
-
 /* Мерцающие звезды */
 .space-background::after {
     content: '';
@@ -55,37 +38,6 @@ body {
     z-index: -1;
 }
 
-/* Изображение планет */
-.planet {
-    position: absolute;
-    width: 150px; /* Размер изображения */
-    height: auto;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px; /* Добавляем закругленные углы */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Добавляем свечение */
-    z-index: -1;
-}
-
-.jupiter {
-    bottom: 20px;
-    left: 20px;
-    background-image: url('https://factszone.ru/wp-content/uploads/2021/02/interesnye-fakty-o-planete-yupiter2.jpg');
-}
-
-.earth {
-    top: 20px;
-    right: 20px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/800px-The_Earth_seen_from_Apollo_17.jpg');
-}
-
-.saturn {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg');
-    width: 200px;
-}
 
 /* Контейнер */
 .container {
@@ -110,9 +62,12 @@ h1 {
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #00bcd4;
     margin-bottom: 20px;
+    text-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    transition: text-shadow 0.3s ease;
+
 }
 
 /* Форма */
@@ -144,6 +99,15 @@ input:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.timezone-note {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-top: 10px; /* Отступ сверху */
+    margin-bottom: 15px; /* Отступ снизу */
+    text-align: center; /* Выравнивание по центру */
+    font-weight: bold;
 }
 
 /* Кнопка в стиле NASA */
@@ -187,4 +151,30 @@ input:focus {
 .results p {
     font-size: 1.1rem;
     margin: 5px 0;
+}
+
+/* Растягиваем body на всю высоту */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Основной контент занимает доступное пространство */
+.main-content {
+    flex: 1;
+}
+
+/* Стиль футера */
+.footer {
+    width: 100%;
+    padding: 15px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ccc;
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+
 }

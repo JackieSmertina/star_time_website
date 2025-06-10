@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<body>
 <!-- Космический фон -->
 <div class="space-background"></div>
 
@@ -27,9 +28,10 @@
         <label for="date">ДАТА (YYYY-MM-DD):</label>
         <input type="text" id="date" name="date" value="{{ date }}" required>
 
-        <label for="time">ВРЕМЯ (HH:MM):</label>
+        <label for="time">ВРЕМЯ (HH:MM:SS):</label>
         <input type="text" id="time" name="time" value="{{ time }}" required>
-
+	   <p class="timezone-note">Расчёты производятся для Томского времени</p>
+	   
         <!-- Первая кнопка: рассчитать JD и LST -->
         <button type="submit" class="nasa-button">Рассчитать звёздное время</button>
     </form>
@@ -67,7 +69,12 @@
             <p><strong>Часовой угол:</strong> {{ hour_angle }}</p>
         {% endif %}
     </section>
+  </div>
 </div>
+	<footer class="footer">
+      <p>Томский государственный университет 2025</p>
+	</footer>
+	
 
 </body>
 </html>
